@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -99,14 +100,13 @@ public class drivesubsystem {
     }
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
-                             double timeoutS, OpMode MyOpmode) {
+                             double timeoutS, LinearOpMode MyOpmode) {
         int newfrontLeftTarget;
         int newbackleftTarget;
         int newfrontrightTarget;
         int newbackrightTarget;
-        OpMode MyOpMode;
         // Ensure that the OpMode is still active
-        if (MyOpMode.OpmodeIsActive()) {
+        if (MyOpmode.opModeIsActive()) {
 
             // Determine new target position, and pass to motor controller
             newbackleftTarget = backLeftDrive.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
@@ -140,9 +140,9 @@ public class drivesubsystem {
             // always end the motion as soon as possible.
             // However, if you require that BOTH motors have finished their moves before the robot continues
             // onto the next step, use (isBusy() || isBusy()) in the loop test.
-            while (MyOpMode.OpmodeIsActive() &&
+            while (MyOpmode.opModeIsActive() &&
                     (runtime.seconds() < timeoutS) &&
-                    (leftDrive.isBusy() && rightDrive.isBusy())) {
+                    (backLeftDrive.isBusy() && backRightDrive.isBusy() && frontLeftDrive.isBusy() && frontRightDrive.isBusy())) {
 
                 // Display it for the driver.
                 telemetry.addData("Running to",  " %7d :%7d", newLeftTarget,  newRightTarget);
