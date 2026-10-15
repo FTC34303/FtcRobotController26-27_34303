@@ -19,12 +19,12 @@ public class everythingelsesubsystem {
       flickerservo =  map.get(CRServo.class,"flickerservo");
     }
     public void update(Gamepad Gamepad1){
-        if(Gamepad1.y){
+        if(Gamepad1.left_trigger_pressed){
             intake.setPower(1);
             leftservo.setPower(-1);
             rightservo.setPower(1);
         }
-        else if(Gamepad1.a){
+        else if(Gamepad1.left_bumper){
             intake.setPower(-1);
             leftservo.setPower(1);
             rightservo.setPower(-1);
@@ -33,16 +33,23 @@ public class everythingelsesubsystem {
             rightservo.setPower(0);
             leftservo.setPower(0);
         }
-        if(Gamepad1.b){
+        if(Gamepad1.right_trigger_pressed){
             launcher.setPower(.5);
-            flickerservo.setPower(1);
+//            flickerservo.setPower(1);
         }
-        else if (Gamepad1.x){
+        else if (Gamepad1.right_bumper){
             launcher.setPower(-1);
-            flickerservo.setPower(-1);
+//            flickerservo.setPower(-1);
         }
         else{
             launcher.setPower(0);
+//            flickerservo.setPower(0);
+        }
+        if(Gamepad1.dpad_up){
+            flickerservo.setPower(1);
+        }else if (Gamepad1.dpad_down){
+            flickerservo.setPower(-1);
+        }else{
             flickerservo.setPower(0);
         }
 
