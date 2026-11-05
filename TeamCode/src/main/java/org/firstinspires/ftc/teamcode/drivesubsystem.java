@@ -107,7 +107,18 @@ public class drivesubsystem {
         Telemetry1.addData(" left/Right", "%4.2f, %4.2f", LeftDrive.getPower(), RightDrive.getPower());
 //        Telemetry1.addData("Back  left/Right", "%4.2f, %4.2f", backLeftDrive.getPower(), backRightDrive.getPower());
     }
+public void turntoAngle(int angleDeg, boolean left){
+        double track_width = 14.875;
+        double degree_to_radians = angleDeg*3.1415926535898/180;
+        double degree_to_radius = track_width/2*degree_to_radians;
+        double degree_to_length = -track_width/2*degree_to_radians;
 
+        if (!left){
+            degree_to_length*=-1;
+            degree_to_radius*=-1;
+        }
+
+}
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS, LinearOpMode MyOpmode) {
