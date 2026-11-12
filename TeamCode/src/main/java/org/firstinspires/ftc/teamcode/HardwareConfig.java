@@ -44,9 +44,8 @@ public class HardwareConfig {
         double degree_to_length = -track_width / 2 * degree_to_radians;
 
         if (boolean left)
-            degree_to_length *= -1;
-            degree_to_radius *= -1;
-        }
-
+        degree_to_length *= -1;
+        degree_to_radius *= -1;
     }
+
 }

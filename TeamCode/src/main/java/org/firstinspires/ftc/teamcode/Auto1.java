@@ -12,6 +12,6 @@ public class Auto1 extends LinearOpMode {
         robot.drive.initauto();
 
         waitForStart();
-        robot.drive.encoderDrive(0.5, 1, 1, 10, this);
+        robot.drive.encoderDrive(0.5, 5, 5, 10, this);
     }
 }
