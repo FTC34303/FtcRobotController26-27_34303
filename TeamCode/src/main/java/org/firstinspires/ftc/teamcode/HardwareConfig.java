@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 public class HardwareConfig {
@@ -37,15 +38,20 @@ public class HardwareConfig {
 
     }
 
-    public void turntoAngle(int angleDeg) {
+    public void turntoAngle(int angleDeg, boolean right, LinearOpMode Op1) {
+        angleDeg/=17;
         double track_width = 14.875;
         double degree_to_radians = angleDeg * 3.1415926535898 / 180;
-        double degree_to_radius = track_width / 2 * degree_to_radians;
-        double degree_to_length = -track_width / 2 * degree_to_radians;
+        double distanceright = track_width / 2 * degree_to_radians;
+        double distanceleft = -track_width / 2 * degree_to_radians;
 
-        if (boolean left)
-        degree_to_length *= -1;
-        degree_to_radius *= -1;
+        if (right){
+        distanceleft *= -1;
+        distanceright *= -1;
+
     }
+        drive.encoderDrive(0.5, distanceleft , distanceright, 2.5, Op1);
 
-}
+}}
+
+

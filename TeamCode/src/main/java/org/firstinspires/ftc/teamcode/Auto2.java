@@ -23,8 +23,11 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
             sleep(5000);
             robot.eesub.launcher.setPower(0);
             robot.eesub.flickerservo.setPower(0);
-            robot.turntoAngle(-45);
-            robot.turntoAngle(31);
+            robot.turntoAngle(-52,true, this);
+         // We are trying to figure out how to get the robot to park. We are trying to figure out how far it goes.
+            robot.drive.encoderDrive(0.5, -0.75*24, -0.75*24, 5, this);
+           // robot.turntoAngle(31,false,this);
+            //robot.drive.encoderDrive(0.5, -1.03*24,-1.03*24, 5, this);
         }
 
     }

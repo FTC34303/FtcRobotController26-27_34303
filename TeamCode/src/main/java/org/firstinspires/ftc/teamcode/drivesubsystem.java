@@ -14,9 +14,9 @@ public class drivesubsystem {
 //    private DcMotor backLeftDrive = null;
     private DcMotor RightDrive = null;
 //    private DcMotor backRightDrive = null;
-    static final double COUNTS_PER_MOTOR_REV = 1440;    // eg: TETRIX Motor Encoder
-    static final double DRIVE_GEAR_REDUCTION = 1.0;     // No External Gearing.
-    static final double WHEEL_DIAMETER_INCHES = 4.0;     // For figuring circumference
+    static final double COUNTS_PER_MOTOR_REV = 537;    // eg: TETRIX Motor Encoder
+    static final double DRIVE_GEAR_REDUCTION = 19.2;     // No External Gearing.
+    static final double WHEEL_DIAMETER_INCHES = 3.77;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
     private ElapsedTime runtime = new ElapsedTime();
