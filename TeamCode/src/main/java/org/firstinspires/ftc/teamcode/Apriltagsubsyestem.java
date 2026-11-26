@@ -40,6 +40,26 @@ public class Apriltagsubsyestem {
 
     }   // end method initAprilTag()
 
+    public double getBearing(){
+        List<AprilTagDetection> currentDetections = aprilTag.getDetections();
+
+
+        // Step through the list of detections and display info for each one.
+        for (AprilTagDetection detection : currentDetections) {
+            if (detection instanceof AprilTagSingleDetection) {
+                AprilTagSingleDetection singleDet = (AprilTagSingleDetection) detection;
+
+                return detection.ftcPose.bearing;
+            } else {
+                AprilTagClusterDetection clusterDet = (AprilTagClusterDetection) detection;
+                return detection.ftcPose.bearing;
+
+            }
+        }
+
+    return Double.POSITIVE_INFINITY;
+    }
+
     public void telemetry(Telemetry Telemetry1) {
         List<AprilTagDetection> currentDetections = aprilTag.getDetections();
         Telemetry1.addData("# AprilTags Detected", currentDetections.size());
